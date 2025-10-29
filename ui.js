@@ -87,6 +87,14 @@ getDataNextThreeDays("Miami").then(futureTempData =>
 
         //weather img
         let futureImg = document.createElement("img");
+        futureImg.setAttribute("id", "futureImg" + i);
+
+        //get the weather img from the OpenWeather API. Plug that into the openWeatherAPI to get the image
+        let iconCode = futureTempData[i].weather[0].icon;
+        let iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+        futureImg.src = iconUrl;
+        
+        futureDayContainer.appendChild(futureImg);
 
         //description
         let weatherDescription = document.createElement("p");
