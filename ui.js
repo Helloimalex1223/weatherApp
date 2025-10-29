@@ -18,7 +18,7 @@ let bigWeatherIconContainer = document.getElementById("rightSideWeatherData");
 //calls the API data from the getData() function. Uses this information to update the UI elements
 getData("Miami").then(tempData =>
 {
-    console.log(tempData);
+    // console.log(tempData);
     
     //city name
     cityName.innerHTML = tempData.name;
@@ -56,6 +56,8 @@ let day = date.getDate();
 let month = date.getMonth() + 1;
 
 dateField.innerHTML = month+ "/" + day;
+
+getDataNextThreeDays("Miami");
 
 
 
