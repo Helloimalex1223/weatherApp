@@ -34,7 +34,7 @@ async function getDataNextThreeDays(city)
         let filterNextThreeDaysResult = nextThreeDaysResult.list.filter((item, index) => index % 8 === 0).slice(1, 5);
 
         console.log(filterNextThreeDaysResult);
-        return nextThreeDaysResult;
+        return filterNextThreeDaysResult;
     }
     catch(error)
     {

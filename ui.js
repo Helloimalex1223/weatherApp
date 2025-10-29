@@ -76,6 +76,15 @@ getDataNextThreeDays("Miami").then(futureTempData =>
         let futureDayHeading = document.createElement("h3");
         futureDayHeading.setAttribute("id", "futureDayHeading" + i);
 
+        //setting date object for each future card
+
+            //split the date info from the API. Then splice this to only get the month and day. Split this again on the dash character as we will add this to the date info element
+        let dateInfo = futureTempData[i].dt_txt;
+        let dateInfoSplit = dateInfo.split(" ")[0].slice(5).split("-");
+
+        futureDayHeading.innerHTML = dateInfoSplit[0] + "/" + dateInfoSplit[1];
+        futureDayContainer.appendChild(futureDayHeading);
+
         //weather img
         let futureImg = document.createElement("img");
 
