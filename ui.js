@@ -33,9 +33,9 @@ getData("Miami").then(tempData =>
 
     //get weather icon type and assign it to the image elements
     let weatherIconInfo = tempData.weather[0]["icon"];
-    weatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconInfo}.png`;
+    weatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconInfo}@2x.png`;
     
-    bigWeatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconInfo}.png`;
+    bigWeatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconInfo}@2x.png`;
 
     iconDescriptionContainer.appendChild(weatherIcon);
 
@@ -91,7 +91,7 @@ getDataNextThreeDays("Miami").then(futureTempData =>
 
         //get the weather img from the OpenWeather API. Plug that into the openWeatherAPI to get the image
         let iconCode = futureTempData[i].weather[0].icon;
-        let iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+        let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
         futureImg.src = iconUrl;
         
         futureDayContainer.appendChild(futureImg);
