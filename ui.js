@@ -1,3 +1,5 @@
+//UI for the current day's weather info
+
 let cityName = document.getElementById("city");
 let tempCurrent = document.getElementById("tempCurrent");
 let tempFHighLow = document.getElementById("tempFHighLow");
@@ -57,7 +59,38 @@ let month = date.getMonth() + 1;
 
 dateField.innerHTML = month+ "/" + day;
 
-getDataNextThreeDays("Miami");
+
+//UI for the future weather info
+let futureWeatherContainer = document.getElementById("futureWeatherContainer");
+
+getDataNextThreeDays("Miami").then(futureTempData =>    
+{
+    //loop through the next 4 entries from the API and create elements in the HTML page using API data
+    for(let i = 0; i < 4; i++)
+    {
+        //container
+        let futureDayContainer = document.createElement("div");
+        futureDayContainer.setAttribute("id", "futureDayContainer" + i);
+
+        //heading
+        let futureDayHeading = document.createElement("h3");
+        futureDayHeading.setAttribute("id", "futureDayHeading" + i);
+
+        //weather img
+        let futureImg = document.createElement("img");
+
+        //description
+        let weatherDescription = document.createElement("p");
+        weatherDescription.setAttribute("id", "weatherDescription" + i);
+
+        //description
+        let futureLowHigh = document.createElement("p");
+        futureLowHigh.setAttribute("id", "futureLowHigh" + i);
+
+        futureWeatherContainer.appendChild(futureDayContainer);
+    }
+}
+);
 
 
 
