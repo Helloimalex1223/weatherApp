@@ -105,7 +105,7 @@ getDataNextThreeDays("Miami").then(futureTempData =>
         //description
         let futureLowHigh = document.createElement("p");
         futureLowHigh.setAttribute("id", "futureLowHigh" + i);
-        futureLowHigh.innerHTML = "Temperature at 12 noon: " + futureTempData[i].main.temp;
+        futureLowHigh.innerHTML = "Temperature at 12 noon: " + futureTempData[i].main.temp + " F";
         futureDayContainer.appendChild(futureLowHigh);
 
         futureWeatherContainer.appendChild(futureDayContainer);
