@@ -1,5 +1,6 @@
-//Change city button
-let changeCity = document.getElementById("changeCity");
+//Get the city value from the text input
+let changeCity = document.getElementById("cityInput");
+let changeCitySubmitButton = document.getElementById("cityInputButton");
 
 //UI for the current day's weather info
 let cityName = document.getElementById("city");
@@ -19,10 +20,17 @@ let humidity = document.getElementById("humidity");
 
 let bigWeatherIconContainer = document.getElementById("rightSideWeatherData");
 
+//on page load, default to New York City
+window.addEventListener("load", () => {
+    changeCity.value = "New York";
+    changeCitySubmitButton.click();
+    changeCity.value = "";
+  });
 
-changeCity.addEventListener("click", () =>
+changeCitySubmitButton.addEventListener("click", () =>
 {
-    let userCityChoice = prompt("Which city do you want to see the weather for?");
+    let userCityChoice = changeCity.value;
+    changeCity.value = "";
 
     if(document.getElementById("futureWeatherContainer").hasChildNodes)
     {
@@ -31,7 +39,14 @@ changeCity.addEventListener("click", () =>
 //calls the API data from the getData() function. Uses this information to update the UI elements
 getData(userCityChoice).then(tempData =>
     {
-        // console.log(tempData);
+        //clear existing text when the button is clicked
+        cityName.innerHTML = "";
+        tempCurrent.innerHTML = "";
+        tempFHighLow.innerHTML = "";
+        weatherDescription.innerHTML = "";
+        weatherIcon.innerHTML = "";
+        windSpeed.innerHTML = "";
+        humidity.innerHTML = "";
         
         //city name
         cityName.innerHTML = tempData.name;
@@ -56,9 +71,9 @@ getData(userCityChoice).then(tempData =>
         weatherDescription.innerHTML += tempData.weather[0]["description"];
     
         //wind speed and humidity
-        windSpeed.innerHTML += tempData.wind.speed + " km/h";
+        windSpeed.innerHTML += "Wind speed: " + tempData.wind.speed + " km/h";
     
-        humidity.innerHTML += tempData.main.humidity + "%";
+        humidity.innerHTML += "Humidity: " + tempData.main.humidity + "%";
     },)
     
     let dateField = document.getElementById("date");

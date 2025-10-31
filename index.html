@@ -17,9 +17,13 @@
         <div class="topContainer">
             <div class="leftSideWeatherData">
                 <div class="cityDate">
+                    <div id="inputForm">
+                        <label for="cityInput" id = "cityInputLabel">City </label>
+                        <input type="text" id="cityInput" required>
+                        <button id ="cityInputButton">SUBMIT</button>
+                    </div>
                     <h1 id="city"></h1>
                     <p id="date"></p>
-                    <button id="changeCity">Change City</button>
                 </div>
 
                 <div class="tempConditions">
@@ -33,7 +37,7 @@
                 </div>
 
                 <div class="windHumidity">
-                    <p id="wind">Wind: </p>
+                    <p id="wind">Wind speed: </p>
                     <p id="humidity">Humidity: </p>
                 </div>
             </div>

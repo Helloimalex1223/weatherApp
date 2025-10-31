@@ -127,6 +127,50 @@ p, h1, h2, h3
     font-weight: 600;
 }
 
+#inputForm
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    color: white;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+@media (max-width: 340px)
+{
+    #inputForm
+    {
+        flex-direction: column;
+    }
+}
+
+#cityInputButton
+{
+    padding: .5rem;
+    align-self: stretch;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border-radius: .25rem;
+}
+
+#cityInput
+{
+    padding: .5rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cityInputLabel
+{
+    font-size: 20px;
+}
+
 #tempCurrent
 {
     font-size: clamp(3rem, 8vw, 5rem);
